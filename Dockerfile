@@ -7,6 +7,9 @@ COPY ./requirements.txt /requirements.txt
 # Install 
 RUN pip install -r /requirements.txt
 
+# Install customized theme
+RUN pip install https://github.com/FAIRplus/sphinx-book-theme/archive/2e7a473775c6e9f476dd5ac986b4454092f60aec.tar.gz
+
 # Document
 RUN pip freeze > /pip_freeze_actual.txt
 
@@ -28,7 +31,7 @@ VOLUME /app/book
 ## Allows to access the build result
 VOLUME /app/_build
 
-CMD cp -r /app/book/ /app/tmp/ && jupyter-book build /app/tmp/ && cp -r /app/tmp/_build/html/* /app/_build/
+CMD cp -rT /app/book /app/tmp && jupyter-book build /app/tmp/ && cp -rT /app/tmp/_build /app/_build
 
 
 
