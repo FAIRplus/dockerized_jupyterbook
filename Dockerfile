@@ -8,7 +8,7 @@ COPY ./requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
 
 # Install customized theme
-RUN pip install https://github.com/FAIRplus/sphinx-book-theme/archive/2e7a473775c6e9f476dd5ac986b4454092f60aec.tar.gz
+RUN pip install https://github.com/FAIRplus/sphinx-book-theme/archive/92f567867b43a3c7e6daf284bf31c5f24a674f90.tar.gz
 
 # Document
 RUN pip freeze > /pip_freeze_actual.txt
